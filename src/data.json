@@ -1,0 +1,41 @@
+{
+    "users": {
+        "usr1": {
+            "name": "shreesha",
+            "id": "123",
+            "profileImg": "",
+            "email": "shreesha.alek@gmail.com"
+        }
+    },
+    "Habits": {
+        "habit1": {
+            "title": "reading",
+            "User": "123",
+            "hoursTaken": "8",
+            "hoursEstimate": "12",
+            "loggedWrorks": {}
+        },
+        "habit2": {
+            "title": "writing",
+            "User": "123",
+            "hoursTaken": "8",
+            "hoursEstimate": "12",
+            "loggedWrorks": {}
+        },
+        "habit3": {
+            "title": "workingout",
+            "User": "123",
+            "hoursTaken": "8",
+            "hoursEstimate": "12",
+            "loggedWrorks": {}
+        }
+    },
+    "Goals": {
+        "goal1": {
+            "user": "123",
+            "enddate": "",
+            "priority": "3",
+            "habitsList": ["habit1","habit2","habit3"]
+        }
+    }
+}

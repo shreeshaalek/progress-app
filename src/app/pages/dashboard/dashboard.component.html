@@ -1,0 +1,9 @@
+
+<app-header></app-header>
+<div class="dashboard-content">
+    <div class="nav-bar-container" *ngIf="desktopScreen >= screenSize">
+        <app-nav-bar></app-nav-bar>
+    </div>
+    <!-- <app-daily-logs></app-daily-logs> -->
+    <router-outlet></router-outlet>
+</div>

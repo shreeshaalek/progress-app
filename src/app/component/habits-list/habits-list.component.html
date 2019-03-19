@@ -1,0 +1,20 @@
+<div class="habit-card" *ngFor="let habit of habitList">
+  <!-- <div>{{habit.id}}</div> -->
+  <div class="title">{{habit.title}}</div>
+  <div class="description">{{habit.description}}</div>
+  <div class="sub-task-completed">{{habit.progressWidth[1]}}/{{habit.progressWidth[2]}}<span>tasks done</span></div>
+  <div class="logged-hours">{{habit.totalLogged}}/{{habit.hoursEstimate}}<span>hours logged</span></div>
+  <div class="progress-bar">
+      <!-- {{calcCompleteTask(habit.subTasks,habit.id)}} -->
+    <span class="progress-container"></span>
+    <span class="progress-slider" [attr.data-width]="habit.progressWidth[0]" [style.width]="habit.progressWidth[0]" ></span>
+  </div>
+  <!-- <div>{{calcCompleteTask(habit.subTasks)}}</div> -->
+  <div *ngIf="habit.subTasks">
+    <div *ngFor="let subTask of habit.subTasks">
+      <div [class]="checkCompleted(subTask.completed)" [attr.data-title]="subTask.subTaskTitle" [attr.data-habit]="habit.id" [attr.data-completed]="subTask.completed" (click)="selectSubTask($event)">{{subTask.subTaskTitle}}</div>
+    </div>
+  </div>
+  <!-- <div>{{habit.totalTask}}</div> -->
+  <!-- <div>{{calcProgress(habit.totalTask, habit.taskDone)}}</div> -->
+</div>

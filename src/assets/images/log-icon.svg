@@ -1,0 +1,36 @@
+<svg width="1280" height="700" xmlns="http://www.w3.org/2000/svg" style="vector-effect: non-scaling-stroke;" stroke="null">
+ <!-- Created with Method Draw - http://github.com/duopixel/Method-Draw/ -->
+
+ <g stroke="null">
+  <title stroke="null">background</title>
+  <rect stroke="null" fill="#fff" id="canvas_background" height="702" width="1282" y="-1" x="-1"/>
+  <g style="vector-effect: non-scaling-stroke;" stroke="null" display="none" overflow="visible" y="0" x="0" height="100%" width="100%" id="canvasGrid">
+   <rect stroke="null" fill="url(#gridpattern)" stroke-width="0" y="0" x="0" height="100%" width="100%"/>
+  </g>
+ </g>
+ <g stroke="null">
+  <title stroke="null">Layer 1</title>
+
+  <g stroke="null" transform="translate(-72.5,-2.5) translate(0,-0.5009346008300781) " id="svg_41">
+   <g stroke="null" transform="matrix(156.3037870162315,0,0,89.70229812662912,-357.7994508208257,247.933687847731) " id="svg_22">
+    <path stroke="null" fill="#000000" stroke-width="0.705556px" id="svg_39" d="m5.27602,-2.243397l4.93889,-0.00002l0,0.7056l-4.93889,0l0,-0.70558z"/>
+    <path stroke="null" fill="#000000" stroke-width="0.705556px" id="svg_38" d="m5.27602,-0.832277l4.93889,-0.00002l0,0.7056l-4.93889,0l0,-0.70558z"/>
+    <path stroke="null" fill="#000000" stroke-width="0.705556px" id="svg_37" d="m5.27602,0.578873l0.70555,-0.00005l0,0.70557l-0.70555,0.00008l0,-0.7056z"/>
+    <path stroke="null" fill="#000000" stroke-width="0.705556px" id="svg_36" d="m5.27602,1.989993l0.70555,0l0,0.70555l-0.70555,0l0,-0.70555z"/>
+    <path stroke="null" fill="#000000" stroke-width="0.705556px" id="svg_35" d="m5.27602,3.401063l0.70555,0l0,0.70557l-0.70555,0l0,-0.70557z"/>
+    <path stroke="null" fill="#000000" stroke-width="0.705556px" stroke-miterlimit="4" stroke-dashoffset="0" id="svg_34" d="m3.15935,-2.243417l1.41111,0l0,0.70552l-1.41111,0l0,-0.70552z"/>
+    <path stroke="null" fill="#000000" stroke-width="0.705556px" stroke-miterlimit="4" stroke-dashoffset="0" id="svg_33" d="m3.15935,-0.832297l1.41111,0l0,0.70554l-1.41111,0l0,-0.70554z"/>
+    <path stroke="null" fill="#000000" stroke-width="0.705556px" stroke-miterlimit="4" stroke-dashoffset="0" id="svg_32" d="m3.15935,0.578873l1.41111,0l0,0.70552l-1.41111,0l0,-0.70552z"/>
+    <path stroke="null" fill="#000000" stroke-width="0.705556px" stroke-miterlimit="4" stroke-dashoffset="0" id="svg_31" d="m3.15935,1.989993l1.41111,0l0,0.70552l-1.41111,0l0,-0.70552z"/>
+    <path stroke="null" fill="#000000" stroke-width="0.705556px" stroke-miterlimit="4" stroke-dashoffset="0" id="svg_30" d="m3.15935,3.401113l1.41111,0l0,0.70552l-1.41111,0l0,-0.70552z"/>
+    <path stroke="#000000" fill="none" stroke-width="0.705556px" id="svg_29" d="m10.63824,4.530283l-1.12889,-1.12893"/>
+    <path stroke="null" fill="#000000" stroke-width="0.705556px" stroke-miterlimit="4" stroke-dashoffset="0" id="svg_28" d="m8.45102,0.579163a1.76389,1.76389 0 0 0 -1.76389,1.76387a1.76389,1.76389 0 0 0 1.76389,1.76389a1.76389,1.76389 0 0 0 1.76389,-1.76389a1.76389,1.76389 0 0 0 -1.76389,-1.76387zm0,0.70552a1.05833,1.05833 0 0 1 1.05833,1.05835a1.05833,1.05833 0 0 1 -1.05833,1.05832a1.05833,1.05833 0 0 1 -1.05833,-1.05832a1.05833,1.05833 0 0 1 1.05833,-1.05835z"/>
+    <rect stroke="null" fill="#000000" fill-opacity="0.376471" stroke-width="0.705556px" stroke-miterlimit="4" stroke-dashoffset="0" y="-2.243447" x="4.570464" width="0.705556" id="svg_27" height="0.705556"/>
+    <rect stroke="null" fill="#000000" fill-opacity="0.376471" stroke-width="0.705556px" stroke-miterlimit="4" stroke-dashoffset="0" y="-0.832317" x="4.570464" width="0.705556" id="svg_26" height="0.705556"/>
+    <rect stroke="null" fill="#000000" fill-opacity="0.376471" stroke-width="0.705556px" stroke-miterlimit="4" stroke-dashoffset="0" y="0.578823" x="4.570464" width="0.705556" id="svg_25" height="0.705556"/>
+    <rect stroke="null" fill="#000000" fill-opacity="0.376471" stroke-width="0.705556px" stroke-miterlimit="4" stroke-dashoffset="0" y="1.989953" x="4.570464" width="0.705556" id="svg_24" height="0.705556"/>
+    <rect stroke="null" fill="#000000" fill-opacity="0.376471" stroke-width="0.705556px" stroke-miterlimit="4" stroke-dashoffset="0" y="3.401083" x="4.570464" width="0.705556" id="svg_23" height="0.705556"/>
+   </g>
+  </g>
+ </g>
+</svg>

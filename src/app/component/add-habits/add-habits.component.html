@@ -1,0 +1,23 @@
+<form [formGroup]="habitForm">
+  <div class="form-group">
+    <label for="title">Title:
+      <input type="text" formControlName="title">
+    </label>
+    <label for="title">Description:
+      <input type="text" formControlName="description">
+    </label>
+    <label for="estimate">Estimate:
+      <input type="number" formControlName="estimate">
+    </label>
+    <div formArrayName="subTaskList" *ngFor="let subtask of habitForm.get('subTaskList').controls; let i = index ">
+      <div [formGroupName]="i">
+      <label for="subTaskTitle">add subtask title:
+        <input type="text" formControlName="subTaskTitle">
+        </label>
+        <button class="add-sub-task" (click)="removeSubTask(i)">remove</button>
+      </div>
+      </div>
+      <button class="add-button" (click)="addSubTask()">Add</button>
+    </div>
+    <button type="submit" (click)="onSubmit()">Submit</button>
+</form>

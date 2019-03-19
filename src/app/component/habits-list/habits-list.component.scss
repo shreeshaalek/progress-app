@@ -1,0 +1,36 @@
+@import '../../utilities/styles/variable.scss';
+@import '../../utilities/styles/fonts.scss';
+
+:host(){
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 15px;
+    padding: 20px;
+}
+.habit-card {
+    background-color: rgb(238,236,239);
+    border-radius: 15px;
+    box-shadow: $box-shadow;
+    padding: 10px;
+    & .title {
+        text-align: center;
+    }
+    & .progress-bar {
+        height: 5px;
+        width: 100%;
+        position: relative;
+        & .progress-container {
+            position: absolute;
+            width: 100%;
+            border-radius: 50px;
+            height: 100%;
+            background-color: grey;
+        }
+        & .progress-slider {
+            position: absolute;
+            border-radius: 50px;
+            height: 100%;
+            background-color: green;
+        }
+    }
+}

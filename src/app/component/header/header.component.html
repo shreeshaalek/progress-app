@@ -1,0 +1,19 @@
+<div class="header-container">
+  <div class="header-info">
+    <div *ngIf="desktopScreen <= screenSize">
+      <div class="nav-icon" (click)="activeSlider($event)">
+        <img class="menu-img" src="assets/images/menu-icon-white.svg">
+      </div>
+      <div class="nav-slider {{slideNav}}">
+              <app-nav-bar></app-nav-bar>
+        </div>
+    </div>
+    <div class="logo">
+      <object class="logo-img" data="assets/images/to-do-logo-white.svg" type="image/svg+xml"></object>
+      <span class="logo-name">tasklist</span>
+    </div>
+    <div class="user-info">
+      <span>shreesha Alek</span>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,7 @@
+<div *ngFor="let goals of goalList">
+  <div>{{goals.id}}</div>
+  <div>{{goals.title}}</div>
+  <!-- <div>{{habit.totalTask}}</div> -->
+  <div>{{calcProgress(goals.habitsList)}}</div>
+  <div>{{goals.priority}}</div>
+</div>

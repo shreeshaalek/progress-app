@@ -1,0 +1,23 @@
+
+  <div class="form-group">
+    <label for="title">Title:
+      <input type="text" [(ngModel)]="title" [value]="title">
+    </label>
+    <label for="Date">EndDate:
+      <input matInput [matDatepicker]="picker"  [(ngModel)]="endDate" [value]="endDate" readonly placeholder="Choose a date">
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </label>
+    <div class="priority">
+      <div *ngFor="let priority of priorityList; let i=index">
+        <input [(ngModel)]="priorityVal" type="radio" name="priority" [value]="priority">
+        <label for="contactChoice2">{{priority}}</label>
+      </div>
+    </div>
+    <div *ngFor="let habit of habitList; let i=index">
+      <div [id]="habit['id']" [attr.data-index]="i" [attr.data-selected]="false" (click)="selectHabit($event)">
+        <div>{{habit.title}}</div>
+      </div>
+    </div>
+    <button type="submit" (click)="onSubmit()">Submit</button>
+  </div>

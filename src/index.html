@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>ProgressApp</title>
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="assets/images/logo.png">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Slabo+27px" rel="stylesheet">
+</head>
+<body>
+  <app-root></app-root>
+</body>
+<script>
+    function dispGapiLoad(){
+      var event = new Event('gapiLoaded');
+      window.dispatchEvent(event, {capture:true});
+    }
+  </script>
+<script src="https://apis.google.com/js/platform.js?onload=dispGapiLoad" async defer></script>
+</html>

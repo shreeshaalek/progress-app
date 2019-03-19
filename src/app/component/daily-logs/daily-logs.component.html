@@ -1,0 +1,14 @@
+
+<ul class="daily-logs-container">
+  <div>
+    <li *ngFor="let logs of logsObj">
+      <p>{{logs.formDate}}</p>
+      <div *ngFor="let habit of logs.habitLists">
+        <span>{{habit.title}}
+        </span>
+        <span>{{habit.hours}}
+        </span>
+      </div>
+    </li>
+  </div>
+</ul>

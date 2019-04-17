@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
-import {MatDatepickerModule,MatNativeDateModule,MatButtonModule,MatFormFieldModule,MatInputModule,MatRippleModule} from '@angular/material';
+import {MatDatepickerModule,MatNativeDateModule,MatButtonModule,MatFormFieldModule,MatInputModule,MatRippleModule, MatTabsModule} from '@angular/material';
 import {BrowserAnimationsModule,NoopAnimationsModule} from '@angular/platform-browser/animations'
 
 import { AppRoutingModule } from './app-routing.module';
@@ -20,6 +20,9 @@ import { AddGoalsComponent } from './component/add-goals/add-goals.component';
 import { GoalsListComponent } from './component/goals-list/goals-list.component';
 import { AppLogoComponent } from './component/app-logo/app-logo.component';
 import { NavBarComponent } from './component/nav-bar/nav-bar.component';
+import {HelpersService} from './service/helpers.service';
+import { ModalDirective } from './utilities/js/modal.directive';
+import { LogModalComponent } from './component/log-modal/log-modal.component';
 
 
 
@@ -27,7 +30,8 @@ const modules = [
   MatButtonModule,
   MatFormFieldModule,
   MatInputModule,
-  MatRippleModule
+  MatRippleModule,
+  MatTabsModule
 ];
 
 const appRoutes: Routes = [
@@ -58,7 +62,9 @@ const appRoutes: Routes = [
     AddGoalsComponent,
     GoalsListComponent,
     AppLogoComponent,
-    NavBarComponent
+    NavBarComponent,
+    ModalDirective,
+    LogModalComponent
   ],
   imports: [
     RouterModule.forRoot(
@@ -76,7 +82,9 @@ const appRoutes: Routes = [
   ],
   providers: [ 
     MatDatepickerModule,  
+    HelpersService,
   ],
+  entryComponents: [ AddGoalsComponent, AddHabitsComponent, LogModalComponent ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

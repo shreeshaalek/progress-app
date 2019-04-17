@@ -1,0 +1,138 @@
+@import "../../utilities/styles/variable.scss";
+@import "../../utilities/styles/fonts.scss";
+
+:host {
+    display: block;
+}
+
+button {
+    cursor: pointer;
+}
+
+.add-goals-modal {
+    border-radius: 6px;
+    background: rgba(255, 255, 255, 0.85);
+    min-width: 500px;
+    padding: 30px;
+    max-height: 400px;
+    overflow: scroll;
+
+    // width: 50%;
+    text-align: center;
+
+    & .header {
+        font-family: BearSkin;
+        margin: 15px 0;
+    }
+
+    & .form-group {
+        position: relative;
+
+        label {
+            margin: 20px 0;
+            display: inline-block;
+        }
+
+        & .description-label {
+            display: block;
+            margin-top: 0;
+
+            & .input-box {
+                display: block;
+                padding: 10px;
+                resize: none;
+                height: 80px;
+            }
+        }
+
+        & .end-date-label {
+            width: 36%;
+            margin-left: 20px;
+        }
+        & .mat-datepicker-toggle {
+            position: absolute;
+            right: 0;
+        }
+        & .title-label {
+            width: 60%;
+        }
+
+        & .input-box {
+            box-sizing: border-box;
+            display: inline-block;
+            width: 100%;
+            border-radius: 5px;
+            text-align: center;
+            height: 40px;
+            font-family: RobotoRegular;
+            background-color: $secondary-color1;
+            border: none;
+            opacity: 0.5;
+            font-size: 16px;
+
+            &::placeholder {
+                text-align: center;
+            }
+        }
+        & .priority-label {
+            display: flex;
+            justify-content: center;
+            margin: 20px;
+            & .priority-list {
+                min-width: 50px;
+                position: relative;
+                margin: 0 20px;
+                border: 1px solid rgba(0, 0, 0, 0.1);
+                font-family: RobotoRegular;
+                border-radius: 6px;
+                & .priority-val {
+                    opacity: 0;
+                    width: 50px;
+                    position: absolute;
+                    cursor: pointer;
+                    left: 0;
+                    height: 100%;
+                    margin: 0;
+                }
+                & label {
+                    margin: 0;
+                }
+                &.active {
+                    background-color:  rgba(0,0,0,0.1);
+                    border: none;
+                }
+            }
+        }
+    }
+    & .habit-lists {
+        display: inline-block;
+        margin: 15px;
+        & .habit-val-container {
+            padding: 10px 15px;
+            font-family: RobotoRegular;
+            border-radius: 6px;
+            box-sizing: border-box;
+            border: 1px solid rgba(0,0,0,0.1);
+            display: inline-block;
+            &.selected {
+                border: none;
+                background-color:  rgba(0,0,0,0.1);
+            }
+        }
+    }
+    & .submit-button,.nav-button {
+        margin: 10px 0;
+        border: none;
+        width: 110px;
+        border-radius: 6px;
+        font-family: RobotoRegular;
+        letter-spacing: 1px;
+        font-size: 14px;
+        background-color: #202020;
+        height: 40px;
+        color: white;
+    }
+    & .submit-button {
+        margin-left: 20px;
+    }
+}

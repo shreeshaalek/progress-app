@@ -10,7 +10,7 @@ export class AppLogoComponent implements OnDestroy, OnInit {
 
   private typeText: string = 'TASKLIST';
   private switchDelay;
-  private delayTime:number = 1000;
+  private delayTime: number = 1000;
   private displayText = '';
   private typeTimeout: any;
   private eraseTimeout: any;
@@ -35,9 +35,9 @@ export class AppLogoComponent implements OnDestroy, OnInit {
       }, this.typeDelay);
     }
     else {
-      this.switchDelay = setTimeout(()=>{
+      this.switchDelay = setTimeout(() => {
         this.eraseWriter()
-      },this.delayTime)
+      }, this.delayTime)
     }
   }
   eraseWriter() {
@@ -49,23 +49,23 @@ export class AppLogoComponent implements OnDestroy, OnInit {
       }, this.typeDelay);
     }
     else {
-      this.switchDelay = setTimeout(()=>{
+      this.switchDelay = setTimeout(() => {
         this.typeWriter();
-      },this.delayTime)
+      }, this.delayTime)
     }
   }
   setNewText(strLen) {
     this.displayText = this.typeText.substring(0, strLen);
   }
 
-  cancelTypeTimeout(){
+  cancelTypeTimeout() {
 
     if (this.typeTimeout) {
       clearTimeout(this.typeTimeout);
     }
   }
 
-  cancelEraseTimeout(){
+  cancelEraseTimeout() {
     if (this.eraseTimeout) {
       clearTimeout(this.eraseTimeout);
     }

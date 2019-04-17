@@ -37,10 +37,10 @@ export class DailyLogsComponent implements OnInit {
       if (!!item['loggedWorks']) {
         Object.keys(item['loggedWorks']).map((elem) => {
           if (!logList[elem]) {
-            logList = Object.assign(logList, { [elem]: { date: elem, formDate: moment(elem, "MM-DD-YYYY").format('Do MMM YY'), habitLists: [{ title: item.title, id: item.id, hours: item['loggedWorks'][elem] }] } })
+            logList = Object.assign(logList, { [elem]: { date: elem, formDate: moment(elem, "MM-DD-YYYY").format('Do MMM YY'), habitLists: [{ title: item.title, id: item.id, subTasks: item['loggedWorks'][elem] }] } })
           }
           else {
-            logList[elem].habitLists.push({ title: item.title, id: item.id, hours: item['loggedWorks'][elem] })
+            logList[elem].habitLists.push({ title: item.title, id: item.id, subTasks: item['loggedWorks'][elem] })
           }
         })
       }

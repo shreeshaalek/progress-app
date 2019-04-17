@@ -1,0 +1,128 @@
+@import "../../utilities/styles/variable.scss";
+@import "../../utilities/styles/fonts.scss";
+
+:host {
+    display: block;
+}
+
+button {
+    cursor: pointer;
+}
+
+.add-habits-modal {
+    border-radius: 6px;
+    background: rgba(255, 255, 255, 0.85);
+    min-width: 500px;
+
+    & .header {
+        font-family: BearSkin;
+        margin: 15px 0;
+    }
+
+    & .form-content {
+        padding: 30px;
+        max-height: 400px;
+        overflow: scroll;
+
+        // width: 50%;
+        text-align: center;
+    }
+
+    & .form-group {
+        position: relative;
+
+        label {
+            margin: 20px 0;
+            display: inline-block;
+        }
+
+        & .description-label {
+            display: block;
+            margin-top: 0;
+
+            & .input-box {
+                display: block;
+                padding: 10px;
+                resize: none;
+                height: 80px;
+            }
+        }
+
+        & .estimate-label {
+            width: 23%;
+            margin-left: 20px;
+        }
+
+        & .title-label {
+            width: 72%;
+        }
+
+        & .input-box {
+            box-sizing: border-box;
+            display: inline-block;
+            width: 100%;
+            border-radius: 5px;
+            text-align: center;
+            height: 40px;
+            font-family: RobotoRegular;
+            background-color: $secondary-color1;
+            border: none;
+            opacity: 0.5;
+            font-size: 16px;
+
+            &::placeholder {
+                text-align: center;
+            }
+        }
+
+        & .add-button {
+            background-image: url("../../../assets/images/add-icon.png");
+            width: 20px;
+            height: 20px;
+            position: absolute;
+            right: 0;
+            bottom: 10px;
+            background-size: cover;
+            border: none;
+        }
+
+        & .subtask-container {
+            margin: 20px 0;
+
+            & .subtask-label {
+                margin: 0;
+                width: 93%;
+            }
+
+            & .add-sub-task {
+                margin-left: 10px;
+                border: none;
+                width: 20px;
+                height: 20px;
+                vertical-align: middle;
+                cursor: pointer;
+                background-color: transparent;
+                background-size: cover;
+                background-image: url("../../../assets/images/delete.png");
+
+                // &:last-of-type {
+                //     background: transparent;
+                // }
+           
+            }
+        }
+    }
+
+    & .submit-buttom {
+        margin: 10px 0;
+        border: none;
+        width: 110px;
+        border-radius: 6px;
+        font-family: RobotoRegular;
+        letter-spacing: 1px;
+        font-size: 14px;
+        background-color: #202020;
+        height: 40px;
+        color: white;
+    }
+}

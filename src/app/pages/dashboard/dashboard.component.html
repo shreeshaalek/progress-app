@@ -1,9 +1,16 @@
-
-<app-header></app-header>
-<div class="dashboard-content">
-    <div class="nav-bar-container" *ngIf="desktopScreen >= screenSize">
-        <app-nav-bar></app-nav-bar>
+<div class="dashboard-container {{openModal ? 'modal-active': ''}}">
+    <app-header></app-header>
+    <div class="dashboard-content">
+        <div class="nav-bar-container" *ngIf="desktopScreen >= screenSize">
+            <app-nav-bar></app-nav-bar>
+        </div>
+        <!-- <app-daily-logs></app-daily-logs> -->
+        <router-outlet></router-outlet>
     </div>
-    <!-- <app-daily-logs></app-daily-logs> -->
-    <router-outlet></router-outlet>
+</div>
+<div class="modal {{openModal ? 'open': ''}}">
+    <div class="modal-container">
+        <ng-template appModal ></ng-template>
+    </div>
+    <div class="modal-overlay"></div>
 </div>

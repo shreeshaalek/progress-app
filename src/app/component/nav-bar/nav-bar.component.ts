@@ -12,11 +12,6 @@ export class NavBarComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    this.styleHeight = `${document.documentElement.clientHeight-67}px`;
-    window.addEventListener('resize',()=>{
-      this.styleHeight= `${document.documentElement.clientHeight-67}px`;
-    })
-    console.log(this.styleHeight);
   }
 
 }

@@ -12,11 +12,4 @@ export class HomepageComponent implements OnInit {
   ngOnInit() {
     this.title = [`Hello World`];
   }
-  handleEvent(){
-    console.log(arguments);
-  }
-
-  charErased() {
-    console.log(arguments);
-  }
 }

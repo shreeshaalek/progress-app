@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FirebaseUtilsService } from '../../firebase-utils.service';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-goals-list',
@@ -28,6 +29,15 @@ export class GoalsListComponent implements OnInit {
   }
   getGoals(goals) {
     this.goalList = goals;
+  }
+
+  deleteGoals(e) {
+    const goalId = e.currentTarget.dataset.id;
+    this.firebaseUtils.deleteData('goals/habitGoals/'+goalId);
+  }
+
+  formatDate(date) {
+    return date;
   }
 
   calcProgress(goalArr){

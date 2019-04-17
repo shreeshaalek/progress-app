@@ -5,7 +5,7 @@
     display: block;
 }
 .nav-container {
-    box-shadow: 7px 0 10px -9px rgba(1,1,1,0.3);
+    box-shadow: 7px 0 10px -9px rgba(71, 87, 185, 0.2);
     width: 265px;
     margin-left: -10px;
     overflow: hidden;
@@ -31,3 +31,25 @@
         }
     }
 }
+
+// @media only screen and (min-width: 768px){
+//     :host(){
+//         max-width: 72rem;
+//         margin: 0 auto;
+//     }
+//     .nav-container {
+//         box-shadow: none;
+//         & .list-container {
+//             & .nav-button {
+//                 display: inline;
+//             }
+//             & .nav-button:has(.habit-active) {
+//                 background-color: red;
+//             }
+//             & .nav-button a{
+//                 color: $primary-color4;              
+//             }
+//         }
+
+//     }
+// }

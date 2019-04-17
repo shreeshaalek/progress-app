@@ -45,7 +45,15 @@ export class FirebaseUtilsService {
     });
   }
   updateData = (reference,val) => {
-    this.database.ref(reference).update(val);
+    this.database.ref(reference).set(val);
+  }
+  getDataFromRef = (ref,reference,callBack) => {
+    this.database.ref(reference).once('value', (snap) => {
+      callBack.call(ref,snap.val());
+    })
+  }
+  deleteData = (reference) => {
+    this.database.ref(reference).remove();
   }
 
 }

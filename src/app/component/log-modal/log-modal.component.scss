@@ -1,0 +1,44 @@
+@import "../../utilities/styles/variable.scss";
+@import "../../utilities/styles/fonts.scss";
+
+.log-modal {
+    border-radius: 6px;
+    background: rgba(255, 255, 255, 0.85);
+    padding: 30px;
+    max-height: 400px;
+    overflow: scroll;
+    & .header {
+        font-family: BearSkin;
+        margin: 15px 0;
+        text-align: center;
+    }
+    & .input-box {
+        box-sizing: border-box;
+        display: inline-block;
+        border-radius: 5px;
+        text-align: center;
+        height: 40px;
+        font-family: RobotoRegular;
+        background-color: $secondary-color1;
+        border: none;
+        margin: 10px;
+        opacity: 0.5;
+        font-size: 16px;
+
+        &::placeholder {
+            text-align: center;
+        }
+    }
+    & .submit-button {
+        margin: 10px;
+        border: none;
+        width: 110px;
+        border-radius: 6px;
+        font-family: RobotoRegular;
+        letter-spacing: 1px;
+        font-size: 14px;
+        background-color: #202020;
+        height: 40px;
+        color: white;
+    }
+}

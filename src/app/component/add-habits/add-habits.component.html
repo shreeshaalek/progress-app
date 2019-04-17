@@ -1,23 +1,28 @@
-<form [formGroup]="habitForm">
-  <div class="form-group">
-    <label for="title">Title:
-      <input type="text" formControlName="title">
-    </label>
-    <label for="title">Description:
-      <input type="text" formControlName="description">
-    </label>
-    <label for="estimate">Estimate:
-      <input type="number" formControlName="estimate">
-    </label>
-    <div formArrayName="subTaskList" *ngFor="let subtask of habitForm.get('subTaskList').controls; let i = index ">
-      <div [formGroupName]="i">
-      <label for="subTaskTitle">add subtask title:
-        <input type="text" formControlName="subTaskTitle">
-        </label>
-        <button class="add-sub-task" (click)="removeSubTask(i)">remove</button>
+<div class="add-habits-modal">
+  <div class="add-habit-image"></div>
+  <form [formGroup]="habitForm" class="form-content">
+    <h1 class="header">Add Task</h1>
+    <div class="form-group">
+      <label for="title" class="title-label">
+        <input class="input-box" type="text" placeholder="Title" formControlName="title" required>
+      </label>
+      <label for="estimate" class="estimate-label">
+        <input class="input-box" type="number" placeholder="Estimate" formControlName="estimate" required>
+      </label>
+      <label for="description" class="description-label">
+        <textarea class="input-box" rows="5" type="text" placeholder="Description" formControlName="description"
+          required></textarea>
+      </label>
+      <div formArrayName="subTaskList" *ngFor="let subtask of habitForm.get('subTaskList').controls; let i = index ">
+        <div class="subtask-container" [formGroupName]="i">
+          <label class="subtask-label" for="subTaskTitle">
+            <input type="text" class="input-box" placeholder="Subtask Title" formControlName="subTaskTitle" required>
+          </label>
+          <button class="add-sub-task" (click)="removeSubTask(i)"></button>
+        </div>
       </div>
-      </div>
-      <button class="add-button" (click)="addSubTask()">Add</button>
+      <button class="add-button" (click)="addSubTask()"></button>
     </div>
-    <button type="submit" (click)="onSubmit()">Submit</button>
-</form>
+    <button type="submit" class="submit-buttom" (click)="onSubmit()">SUBMIT</button>
+  </form>
+</div>

@@ -1,23 +1,35 @@
-
-  <div class="form-group">
-    <label for="title">Title:
-      <input type="text" [(ngModel)]="title" [value]="title">
-    </label>
-    <label for="Date">EndDate:
-      <input matInput [matDatepicker]="picker"  [(ngModel)]="endDate" [value]="endDate" readonly placeholder="Choose a date">
-      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-      <mat-datepicker #picker></mat-datepicker>
-    </label>
-    <div class="priority">
-      <div *ngFor="let priority of priorityList; let i=index">
-        <input [(ngModel)]="priorityVal" type="radio" name="priority" [value]="priority">
-        <label for="contactChoice2">{{priority}}</label>
+<div class="add-goals-modal">
+  <h1 class="header">Add goals</h1>
+  <div *ngIf="!showHabits">
+    <div class="form-group">
+      <label for="title" class="title-label">
+        <input type="text" class="input-box" placeholder="title" [(ngModel)]="title" [value]="title">
+      </label>
+      <label for="Date" class="end-date-label">
+        <input matInput class="input-box" placeholder="End Date" [matDatepicker]="picker" [(ngModel)]="endDate"
+          [value]="endDate" readonly placeholder="Choose a date">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </label>
+      <label for="description" class="description-label">
+        <textarea type="text" class="input-box" placeholder="description" [(ngModel)]="description"
+          [value]="description"></textarea>
+      </label>
+      <div class="priority" class="priority-label">
+        <div class="priority-list {{i+1 === priorityVal ? 'active' : '' }}" *ngFor="let priority of priorityList; let i=index">
+          <input class="priority-val" [(ngModel)]="priorityVal" type="radio" [name]="i" [value]="priority">
+          <label for="contactChoice2">{{priority}}</label>
+        </div>
       </div>
     </div>
-    <div *ngFor="let habit of habitList; let i=index">
-      <div [id]="habit['id']" [attr.data-index]="i" [attr.data-selected]="false" (click)="selectHabit($event)">
-        <div>{{habit.title}}</div>
-      </div>
-    </div>
-    <button type="submit" (click)="onSubmit()">Submit</button>
   </div>
+  <div *ngIf="showHabits" class="habit-container">
+    <div class="habit-lists" *ngFor="let habit of habitList; let i=index">
+      <div [id]="habit['id']" class="habit-val-container" [attr.data-index]="i" [attr.data-selected]="false" (click)="selectHabit($event)">
+        <span>{{habit.title}}</span>
+      </div>
+    </div>
+  </div>
+  <button class="nav-button" (click)="onToggleNav()">{{navVal}}</button>
+  <button class="submit-button {{disableSubmit ? 'disable' : ''}}" type="submit" (click)="onSubmit()">Submit</button>
+</div>

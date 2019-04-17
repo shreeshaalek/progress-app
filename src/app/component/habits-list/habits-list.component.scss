@@ -1,36 +1,207 @@
-@import '../../utilities/styles/variable.scss';
-@import '../../utilities/styles/fonts.scss';
+@import "../../utilities/styles/variable.scss";
+@import "../../utilities/styles/fonts.scss";
 
-:host(){
+:host {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-gap: 15px;
-    padding: 20px;
+    grid-template-columns: repeat(1, 1fr);
+    grid-gap: 30px;
+    background-color: transparent;
+    padding: 20px 30px;
 }
+
 .habit-card {
-    background-color: rgb(238,236,239);
-    border-radius: 15px;
+    background-color: $primary-color3;
+    border-radius: 6px;
+    position: relative;
     box-shadow: $box-shadow;
-    padding: 10px;
+    color: $primary-color4;
+    padding: 20px;
+    overflow-y: scroll;
+
     & .title {
-        text-align: center;
+        font-weight: 400;
+        text-transform: capitalize;
+        margin: 10px 0;
+        font-size: 1.5rem;
+        font-family: $helvetica-arial-font;
+
+        .right-arrow {
+            height: 14px;
+            float: right;
+        }
     }
+
+    & .options {
+        position: absolute;
+        right: 20px;
+        top: 15px;
+
+        & .delete-button {
+            background-image: url("../../../assets/images/delete.png");
+            background-size: cover;
+            width: 15px;
+            height: 15px;
+        }
+
+        & .sub-task-button {
+            background-image: url("../../../assets/images/subtask_next.png");
+            background-size: cover;
+            margin-left: 5px;
+            width: 15px;
+            height: 15px;
+
+            &.hide-subtask {
+                transform: rotate(-180deg);
+            }
+        }
+    }
+
+    & .description {
+        font-family: $helvetica-arial-font;
+        margin: 10px 0;
+        font-size: 0.875rem;
+        opacity: 0.7;
+    }
+
+    & .rate-wrapper {
+        display: flex;
+        flex-direction: row;
+        margin: 10px 0;
+        font-size: 1.5rem;
+        opacity: 0.6;
+        font-family: $roboto-arial-font;
+
+        & .sub-task-completed, .logged-hours {
+            display: flex;
+            align-items: center;
+        }
+
+        & span {
+            font-size: 0.70rem;
+            vertical-align: middle;
+            margin-left: 3px;
+            letter-spacing: -0.5px;
+        }
+
+        & .logged-hours {
+            margin-left: auto;
+        }
+    }
+
     & .progress-bar {
-        height: 5px;
+        height: 2px;
         width: 100%;
         position: relative;
+        animation: widthSlide 1.0s ease-in-out;
+
         & .progress-container {
             position: absolute;
             width: 100%;
             border-radius: 50px;
             height: 100%;
-            background-color: grey;
+            background-color: gray;
+            opacity: 0.1;
         }
+
         & .progress-slider {
             position: absolute;
-            border-radius: 50px;
+            width: 0;
+            transition-delay: 5s;
             height: 100%;
-            background-color: green;
+            background-color: $secondary-color2;
         }
+    }
+
+    .sub-tasks {
+        max-height: 140px;
+
+        & .sub-task-title {
+            margin-top: 0;
+            font-weight: 400;
+            font-size: 18px;
+            text-transform: capitalize;
+            font-family: $helvetica-arial-font;
+        }
+
+        & .sub-task-list-container {
+            border-top: 1px solid rgba(91, 69, 109,0.1);
+            & .subtask-list {
+                padding: 10px 0 10px 30px;
+                font-family: $roboto-arial-font;
+                color: $primary-color4;
+                font-size: 0.875rem;
+                cursor: pointer;
+                &.selected {
+                    opacity: 0.5;
+                    cursor: default;
+                }
+                &::before {
+                    content: '';
+                    position: absolute;
+                    display: block;
+                    width: 15px;
+                    left: 20px;
+                    height: 15px;
+                    border-radius: 50%;
+                    border: 2px solid rgba(91, 69, 109,0.5);
+                }
+
+                &.selected::before {
+                    content: '✓';
+                    color: $primary-color3;
+                    text-align: center;
+                    font-size: 0.8125rem;
+                    font-family: Devanagari MT;
+                    background-color: $secondary-color2;
+                    border: 2px solid $secondary-color2;
+                }
+            }
+        }
+    }
+
+    @-webkit-keyframes slide {
+        from {
+            left: 100px;
+        }
+
+        to {
+            left: 10px;
+        }
+    }
+
+    @keyframes slide {
+        from {
+            left: 100px;
+        }
+
+        to {
+            left: 10px;
+        }
+    }
+
+    @keyframes widthSlide {
+        from {
+            width: 0;
+        }
+
+        to {
+            width: 100%;
+        }
+    }
+}
+
+@media only screen and (min-width: 600px) {
+    :host {
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 15px;
+        padding: 20px;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    :host {
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: 15px;
+        padding: 20px;
     }
 }

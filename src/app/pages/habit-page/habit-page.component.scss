@@ -1,3 +1,18 @@
+:host(){
+    display: block;
+    overflow: hidden;
+}
 .habit-list{
     overflow: hidden;
+    & .button-container {
+        padding: 20px 20px 0;
+        text-align: right;
+        & .add-button {
+            background: url('../../../assets/images/add-button.png');
+            width: 20px;
+            margin-right: 10px;
+            height: 20px;
+            background-size: contain;
+        }
+    }
 }

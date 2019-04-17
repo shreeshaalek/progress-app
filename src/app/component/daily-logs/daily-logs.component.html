@@ -1,13 +1,18 @@
-
 <ul class="daily-logs-container">
   <div>
     <li *ngFor="let logs of logsObj">
-      <p>{{logs.formDate}}</p>
+      <h3>{{logs.formDate}}</h3>
       <div *ngFor="let habit of logs.habitLists">
-        <span>{{habit.title}}
-        </span>
-        <span>{{habit.hours}}
-        </span>
+        <h4>{{habit.title}}
+        </h4>
+        <div *ngIf="habit.subTasks.length">
+          <div *ngFor="let subTask of habit.subTasks">
+            <span class="title">{{subTask.title}}
+            </span>
+            <span class="logged-time">{{subTask.logWork}}
+            </span>
+          </div>
+        </div>
       </div>
     </li>
   </div>

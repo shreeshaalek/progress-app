@@ -1,18 +1,32 @@
 <div class="habit-card" *ngFor="let habit of habitList">
   <!-- <div>{{habit.id}}</div> -->
-  <div class="title">{{habit.title}}</div>
-  <div class="description">{{habit.description}}</div>
-  <div class="sub-task-completed">{{habit.progressWidth[1]}}/{{habit.progressWidth[2]}}<span>tasks done</span></div>
-  <div class="logged-hours">{{habit.totalLogged}}/{{habit.hoursEstimate}}<span>hours logged</span></div>
-  <div class="progress-bar">
-      <!-- {{calcCompleteTask(habit.subTasks,habit.id)}} -->
-    <span class="progress-container"></span>
-    <span class="progress-slider" [attr.data-width]="habit.progressWidth[0]" [style.width]="habit.progressWidth[0]" ></span>
+  <div class="options">
+    <button class="delete-button" [attr.data-id]="habit.id" (click)="deleteHabit($event)"></button>
+    <button class="sub-task-button {{arrowClicked[habit.id] ? 'hide-subtask' : ''}}" [attr.data-id]="habit.id"
+      (click)="toggleSubTask($event)"></button>
+  </div>
+  <div *ngIf="!arrowClicked[habit.id]">
+    <h2 class="title">
+      {{habit.title}}
+    </h2>
+    <div class="progress-bar">
+      <span class="progress-container"></span>
+      <span class="progress-slider" [attr.data-width]="habit.progressWidth[0]"
+        [style.width]="habit.progressWidth[0]"></span>
+    </div>
+    <div class="description">{{habit.description}}</div>
+    <div class="rate-wrapper">
+      <div class="sub-task-completed">{{habit.progressWidth[1]}}/{{habit.progressWidth[2]}}<span>tasks done</span></div>
+      <div class="logged-hours">{{habit.totalLogged}}/{{habit.hoursEstimate}}<span>logged(hrs)</span></div>
+    </div>
   </div>
   <!-- <div>{{calcCompleteTask(habit.subTasks)}}</div> -->
-  <div *ngIf="habit.subTasks">
-    <div *ngFor="let subTask of habit.subTasks">
-      <div [class]="checkCompleted(subTask.completed)" [attr.data-title]="subTask.subTaskTitle" [attr.data-habit]="habit.id" [attr.data-completed]="subTask.completed" (click)="selectSubTask($event)">{{subTask.subTaskTitle}}</div>
+  <div *ngIf="habit.subTasks && arrowClicked[habit.id]" class="sub-tasks">
+    <h2 class="sub-task-title">Subtask</h2>
+    <div class="sub-task-list-container" *ngFor="let subTask of habit.subTasks">
+      <div class="subtask-list {{checkCompleted(subTask.completed)}}" [attr.data-title]="subTask.subTaskTitle"
+        [attr.data-habit]="habit.id" [attr.data-completed]="subTask.completed" (click)="selectSubTask($event)">
+        {{subTask.subTaskTitle}}</div>
     </div>
   </div>
   <!-- <div>{{habit.totalTask}}</div> -->

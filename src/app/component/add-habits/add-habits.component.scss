@@ -11,12 +11,14 @@ button {
 
 .add-habits-modal {
     border-radius: 6px;
-    background: rgba(255, 255, 255, 0.85);
-    min-width: 500px;
+    background: rgba(237, 238, 243,0.85);
 
     & .header {
-        font-family: BearSkin;
-        margin: 15px 0;
+        font-family: PrintNeat;
+        text-transform: uppercase;
+        margin-top: 10px;
+        color: $primary-color4;
+        margin-bottom: 0;
     }
 
     & .form-content {
@@ -44,7 +46,6 @@ button {
                 display: block;
                 padding: 10px;
                 resize: none;
-                height: 80px;
             }
         }
 
@@ -54,51 +55,63 @@ button {
         }
 
         & .title-label {
-            width: 72%;
+            width: 69%;
         }
 
         & .input-box {
             box-sizing: border-box;
             display: inline-block;
             width: 100%;
-            border-radius: 5px;
+            background-color: transparent;
+            outline: none;
+            border: 0;
+            color: $primary-color4;
+            border-bottom: 1px solid rgba(91, 69, 109,0.3);
             text-align: center;
             height: 40px;
-            font-family: RobotoRegular;
-            background-color: $secondary-color1;
-            border: none;
-            opacity: 0.5;
-            font-size: 16px;
+            font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+            // opacity: 0.5;
+            font-size: 14px;
 
             &::placeholder {
                 text-align: center;
+                opacity: 0.5;
+            }
+            &:focus {
+                border-bottom: 2px solid rgba(91, 69, 109,0.5);
+            }
+            &.ng-invalid.ng-touched {
+                border-bottom: 2px solid rgba(210, 74, 74, 0.6);
+                background-color:rgba(255, 161, 161, 0.2);
             }
         }
 
         & .add-button {
             background-image: url("../../../assets/images/add-icon.png");
-            width: 20px;
-            height: 20px;
+            width: 18px;
+            height: 18px;
             position: absolute;
             right: 0;
             bottom: 10px;
             background-size: cover;
             border: none;
         }
+        & .sub-task-list:last-of-type .add-sub-task{
+            display: none;
+        }
 
         & .subtask-container {
             margin: 20px 0;
-
+            text-align: left;
             & .subtask-label {
                 margin: 0;
-                width: 93%;
+                width: 89%;
             }
 
             & .add-sub-task {
-                margin-left: 10px;
-                border: none;
-                width: 20px;
-                height: 20px;
+                margin-left: 14px;
+                width: 18px;
+                height: 18px;
                 vertical-align: middle;
                 cursor: pointer;
                 background-color: transparent;
@@ -121,7 +134,7 @@ button {
         font-family: RobotoRegular;
         letter-spacing: 1px;
         font-size: 14px;
-        background-color: #202020;
+        background-color: $primary-color4;
         height: 40px;
         color: white;
     }

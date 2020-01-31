@@ -7,13 +7,13 @@
         <input class="input-box" type="text" placeholder="Title" formControlName="title" required>
       </label>
       <label for="estimate" class="estimate-label">
-        <input class="input-box" type="number" placeholder="Estimate" formControlName="estimate" required>
+        <input type="text" pattern="\d*" maxlength="3" class="input-box" placeholder="Estimate" formControlName="estimate" required>
       </label>
       <label for="description" class="description-label">
-        <textarea class="input-box" rows="5" type="text" placeholder="Description" formControlName="description"
-          required></textarea>
+        <input class="input-box" type="text" placeholder="Description" formControlName="description"
+          required>
       </label>
-      <div formArrayName="subTaskList" *ngFor="let subtask of habitForm.get('subTaskList').controls; let i = index ">
+      <div class="sub-task-list" formArrayName="subTaskList" *ngFor="let subtask of habitForm.get('subTaskList').controls; let i = index ">
         <div class="subtask-container" [formGroupName]="i">
           <label class="subtask-label" for="subTaskTitle">
             <input type="text" class="input-box" placeholder="Subtask Title" formControlName="subTaskTitle" required>

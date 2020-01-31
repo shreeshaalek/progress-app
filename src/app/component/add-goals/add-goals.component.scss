@@ -8,11 +8,12 @@
 button {
     cursor: pointer;
 }
-
+.disable {
+    opacity: 0.5;
+}
 .add-goals-modal {
     border-radius: 6px;
-    background: rgba(255, 255, 255, 0.85);
-    min-width: 500px;
+    background: rgba(237, 238, 243,0.85);
     padding: 30px;
     max-height: 400px;
     overflow: scroll;
@@ -21,8 +22,10 @@ button {
     text-align: center;
 
     & .header {
-        font-family: BearSkin;
-        margin: 15px 0;
+        font-family: PrintNeat;
+        text-transform: uppercase;
+        margin-top: 10px;
+        color: $primary-color4;
     }
 
     & .form-group {
@@ -36,22 +39,22 @@ button {
         & .description-label {
             display: block;
             margin-top: 0;
-
-            & .input-box {
-                display: block;
-                padding: 10px;
-                resize: none;
-                height: 80px;
-            }
         }
 
         & .end-date-label {
-            width: 36%;
+            width: 30%;
             margin-left: 20px;
         }
         & .mat-datepicker-toggle {
             position: absolute;
             right: 0;
+            & .mat-icon-button {
+                background-image: url('../../../assets/images/calendar.svg');
+                background-size: contain;
+                & .mat-button-wrapper {
+                    display: none;
+                }
+            }
         }
         & .title-label {
             width: 60%;
@@ -61,65 +64,146 @@ button {
             box-sizing: border-box;
             display: inline-block;
             width: 100%;
-            border-radius: 5px;
+            background-color: transparent;
+            outline: none;
+            border: 0;
+            color: $primary-color4;
+            border-bottom: 1px solid rgba(91, 69, 109,0.3);
             text-align: center;
             height: 40px;
-            font-family: RobotoRegular;
-            background-color: $secondary-color1;
-            border: none;
-            opacity: 0.5;
-            font-size: 16px;
+            font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+            // opacity: 0.5;
+            font-size: 14px;
 
             &::placeholder {
                 text-align: center;
+                opacity: 0.5;
+                text-transform: capitalize;
+            }
+            &:focus {
+                border-bottom: 2px solid rgba(91, 69, 109,0.5);
+            }
+            &.ng-invalid.ng-touched {
+                border-bottom: 2px solid rgba(210, 74, 74, 0.6);
+                background-color:rgba(255, 161, 161, 0.2);
             }
         }
         & .priority-label {
             display: flex;
             justify-content: center;
-            margin: 20px;
+            margin: 20px 0;
             & .priority-list {
                 min-width: 50px;
+                margin: 0 10px;
+                display: flex;
+                font-size: 	0.625rem;
+                opacity: 0.7;
+                color: $primary-color4;
+                align-items: center;
+                text-transform: uppercase;
                 position: relative;
-                margin: 0 20px;
-                border: 1px solid rgba(0, 0, 0, 0.1);
-                font-family: RobotoRegular;
-                border-radius: 6px;
+                font-family: $helvetica-arial-font;
                 & .priority-val {
                     opacity: 0;
-                    width: 50px;
+                    width: 100%;
                     position: absolute;
                     cursor: pointer;
                     left: 0;
                     height: 100%;
                     margin: 0;
                 }
+                &::before {
+                    content: '';
+                    display: inline-block;
+                    width: 15px;
+                    height: 15px;
+                    border-radius: 50%;
+                    margin-right: 5px;
+                    border: 2px solid $primary-color4;
+                }
                 & label {
                     margin: 0;
                 }
                 &.active {
-                    background-color:  rgba(0,0,0,0.1);
-                    border: none;
+                    &::after {
+                        content: '';
+                        display: block;
+                        width: 9px;
+                        height: 9px;
+                        background-color: $primary-color4;
+                        left: 5px;
+                        top: 5px;
+                        border-radius: 50%;
+                        position: absolute;
+                    }
                 }
             }
         }
     }
-    & .habit-lists {
-        display: inline-block;
-        margin: 15px;
+    .habit-container {
+        grid-template-columns: repeat(2, 1fr);
+        display: grid;
+        grid-column-gap: 20px;
+        grid-row-gap: 10px;
+    }
+    .habit-lists {
+        position: relative;
         & .habit-val-container {
-            padding: 10px 15px;
-            font-family: RobotoRegular;
-            border-radius: 6px;
-            box-sizing: border-box;
-            border: 1px solid rgba(0,0,0,0.1);
-            display: inline-block;
+            // border-top: 1px solid rgba(91, 69, 109,0.1);
+            & span {
+                padding: 15px;
+                font-family: $helvetica-arial-font;
+                color: $primary-color4;
+                font-weight: 300;
+                display: block;
+                margin-left: 10px;
+                font-size: 1rem;
+                cursor: pointer;
+            }
             &.selected {
-                border: none;
-                background-color:  rgba(0,0,0,0.1);
+                cursor: default;
+            }
+            &::before {
+                content: '';
+                position: absolute;
+                display: block;
+                transform: translateY(-50%);
+                opacity: 0.5;
+                top: 50%;
+                width: 15px;
+                left: 0;
+                height: 15px;
+                border-radius: 50%;
+                border: 2px solid rgba(91, 69, 109,0.5);
+            }
+
+            &.selected::before {
+                content: '✓';
+                color: $primary-color3;
+                text-align: center;
+                font-size: 0.8125rem;
+                font-family: Devanagari MT;
+                background-color: $secondary-color2;
+                border: 2px solid $secondary-color2;
             }
         }
     }
+    // & .habit-lists {
+    //     display: inline-block;
+    //     margin: 15px;
+    //     & .habit-val-container {
+    //         padding: 10px 15px;
+    //         font-family: RobotoRegular;
+    //         border-radius: 6px;
+    //         box-sizing: border-box;
+    //         border: 1px solid rgba(0,0,0,0.1);
+    //         display: inline-block;
+    //         &.selected {
+    //             border: none;
+    //             background-color:  rgba(0,0,0,0.1);
+    //         }
+    //     }
+    // }
     & .submit-button,.nav-button {
         margin: 10px 0;
         border: none;
@@ -128,7 +212,7 @@ button {
         font-family: RobotoRegular;
         letter-spacing: 1px;
         font-size: 14px;
-        background-color: #202020;
+        background-color: $primary-color4;
         height: 40px;
         color: white;
     }

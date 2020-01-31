@@ -5,7 +5,6 @@
     display: block;
 }
 .nav-container {
-    box-shadow: 7px 0 10px -9px rgba(71, 87, 185, 0.2);
     width: 265px;
     margin-left: -10px;
     overflow: hidden;
@@ -15,7 +14,7 @@
         list-style-type: none;
         padding: 20px 20px;
         & .nav-button {
-            padding: 20px 10px;
+            padding: 20px;
             display: flex;
             & .router-icons{
                 margin-right: 12px;
@@ -26,12 +25,65 @@
         & .nav-button a{
             color: $primary-color1;
             font-size: 1rem;
-            font-family: RobotoRegular;
+            font-family: KalvikaRegular;
             text-decoration: none;
+        }
+        & .nav-button a:hover{
+            font-size: 1.5rem;
+            font-weight: 700;
         }
     }
 }
 
+@media only screen and (min-width: 768px){
+    :host(){
+        max-width: 72rem;
+        margin: 0 auto;
+    }
+    .nav-container {
+        max-width: 190px;
+        background-color: transparent;
+        & .list-container {
+            display: flex;
+            flex-direction: column;
+            & .nav-button {
+                position: relative;
+                padding: 20px 0;
+                border-bottom: 1px solid rgba(255,255,255,0.5);        
+            }
+            & .nav-button:last-child{
+                border-bottom: none;        
+            }
+            & .nav-button a{
+                color: white;
+                text-transform: uppercase;        
+            }
+            // & .nav-button a::after{
+            //     content: '';
+            //     background-image: url('../../../assets/images/nav-right.svg');
+            //     background-size: contain;
+            //     width: 20px;
+            //     height: 20px;
+            //     position: absolute;
+            //     right: 0;
+            //     top: 50%;
+            //     transform: translateY(-50%);         
+            // }
+            // & .habit-active::before,.goals-active::before,.logs-active::before {
+            //     content: '';
+            //     display: inline;
+            //     width: 3px;
+            //     height: 21px;
+            //     position: absolute;
+            //     background-color: #eb4f1e;
+            //     /* top: 0; */
+            //     left: 0;
+            //     right: 0;
+            // }
+        }
+
+    }
+}
 // @media only screen and (min-width: 768px){
 //     :host(){
 //         max-width: 72rem;

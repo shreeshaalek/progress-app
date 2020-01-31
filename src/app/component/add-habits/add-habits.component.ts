@@ -1,5 +1,5 @@
 import { Component, OnInit, OnChanges } from '@angular/core';
-import { FormBuilder, FormArray } from '@angular/forms';
+import { FormBuilder, FormArray, FormControl, Validators } from '@angular/forms';
 import { FirebaseUtilsService } from '../../firebase-utils.service';
 import * as moment from 'moment';
 
@@ -13,9 +13,9 @@ export class AddHabitsComponent implements OnInit {
 
   ngOnInit() {
     this.habitForm = this.fb.group({
-      title: '',
-      estimate: '',
-      description: '',
+      title: new FormControl('', [Validators.required]),
+      estimate: new FormControl('', [Validators.required]),
+      description: new FormControl('', [Validators.required]),
       subTaskList: this.fb.array([this.subTaskGroup()])
     });
   }
@@ -33,12 +33,14 @@ export class AddHabitsComponent implements OnInit {
   subTaskGroup() {
     return this.fb.group({
       completed: false,
-      subTaskTitle: ''
+      subTaskTitle: new FormControl('', [Validators.required]),
     })
   }
   onSubmit() {
     let habitId = this.generateId()
-    this.firebaseUtils.setUserData('habits/' + habitId, { id: habitId }, { hoursEstimate: this.habitForm.value.estimate }, { loggedWorks: '' }, { title: this.habitForm.value.title }, { user: '103150873432940546560' }, { subTasks: this.habitForm.value.subTaskList }, { description: this.habitForm.value.description })
+    if(this.habitForm.status === 'VALID'){
+      this.firebaseUtils.setUserData('habits/' + habitId, { id: habitId }, { hoursEstimate: this.habitForm.value.estimate }, { loggedWorks: '' }, { title: this.habitForm.value.title }, { user: '103150873432940546560' }, { subTasks: this.habitForm.value.subTaskList }, { description: this.habitForm.value.description })
+    }
   }
 
   constructor(private fb: FormBuilder, private firebaseUtils: FirebaseUtilsService) { }

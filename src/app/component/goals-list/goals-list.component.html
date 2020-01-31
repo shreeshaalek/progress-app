@@ -1,16 +1,30 @@
 <div class="goal-card" *ngFor="let goals of goalList">
   <div class="options">
     <button class="delete-button" [attr.data-id]="goals.id" (click)="deleteGoals($event)"></button>
+    <button class="habits-list-button {{arrowClicked[goals.id] ? 'hide-habits' : ''}}" [attr.data-id]="goals.id"
+      (click)="toggleHabitList($event)"></button>
   </div>
-  <h2 class="title">{{goals.title}}</h2>
-  <div class="description">{{goals.description}}</div>
-  <div class="end-date">{{formatDate(goals.endDate)}}</div>
-  <!-- <div>{{habit.totalTask}}</div> -->
-  <div class="progress-bar">
+  <div *ngIf="!arrowClicked[goals.id]">
+    <div class="title-container">
+      <h2 class="title">{{goals.title}}</h2>
+  </div>
+    <div class="progress-bar">
       <!-- {{calcCompleteTask(habit.subTasks,habit.id)}} -->
       <span class="progress-container"></span>
       <span class="progress-slider" [attr.data-width]="calcProgress(goals.habitsList)"
         [style.width]="calcProgress(goals.habitsList)"></span>
+    </div>
+    <div class="description">{{goals.description}}</div>
+    <div class="info-wrapper">
+    <div class="end-date">{{formatDate(goals.endDate)}}</div>
+    <div class="priority p{{goals.priority}}">{{getPriority(goals.priority)}}</div>
   </div>
-  <div class="priority">{{goals.priority}}</div>
+  </div>
+  <div *ngIf="goals.habitsList && arrowClicked[goals.id]" class="habit-list">
+    <h2 class="habit-title">Habit List</h2>
+    <div class="habit-list-container" *ngFor="let habit of goals.habitsList">
+      <div class="habit-list {{checkCompleted(habit)}}" [attr.data-habit]="habit">
+        {{getHabitTitle(habit)}}</div>
+    </div>
+  </div>
 </div>

@@ -3,22 +3,22 @@
   <div *ngIf="!showHabits">
     <div class="form-group">
       <label for="title" class="title-label">
-        <input type="text" class="input-box" placeholder="title" [(ngModel)]="title" [value]="title">
+        <input type="text" class="input-box" placeholder="title" [(ngModel)]="title" [value]="title" required>
       </label>
       <label for="Date" class="end-date-label">
         <input matInput class="input-box" placeholder="End Date" [matDatepicker]="picker" [(ngModel)]="endDate"
-          [value]="endDate" readonly placeholder="Choose a date">
+          [value]="endDate" readonly placeholder="End date" required>
         <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
         <mat-datepicker #picker></mat-datepicker>
       </label>
       <label for="description" class="description-label">
-        <textarea type="text" class="input-box" placeholder="description" [(ngModel)]="description"
-          [value]="description"></textarea>
+        <input type="text" class="input-box" placeholder="description" [(ngModel)]="description"
+          [value]="description" required>
       </label>
       <div class="priority" class="priority-label">
         <div class="priority-list {{i+1 === priorityVal ? 'active' : '' }}" *ngFor="let priority of priorityList; let i=index">
-          <input class="priority-val" [(ngModel)]="priorityVal" type="radio" [name]="i" [value]="priority">
-          <label for="contactChoice2">{{priority}}</label>
+          <input class="priority-val p{{i}}" [(ngModel)]="priorityVal" type="radio" [name]="i" [value]="priority" required>
+          <label for="contactChoice2">{{getPriority(priority)}}</label>
         </div>
       </div>
     </div>

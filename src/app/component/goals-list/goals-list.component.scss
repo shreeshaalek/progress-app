@@ -3,23 +3,35 @@
 
 :host {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-gap: 15px;
-    padding: 20px;
+    grid-template-columns: repeat(1, 1fr);
+    grid-gap: 30px;
+    background-color: transparent;
+    padding: 20px 30px;
 }
 
 .goal-card {
-    background: rgba(255, 255, 255, 0.85);
+    background-color: $primary-color3;
     border-radius: 6px;
     position: relative;
     box-shadow: $box-shadow;
+    color: $primary-color4;
     padding: 20px;
     overflow-y: scroll;
-
+    & .title-container {
+        display: flex;
+    }
     & .title {
-        text-transform: uppercase;
+        font-weight: 400;
+        text-transform: capitalize;
         margin: 10px 0;
-        font-family: RobotoRegular;
+        font-size: 1.5rem;
+        display: inline-block;
+        font-family: $helvetica-arial-font;
+
+        .right-arrow {
+            height: 14px;
+            float: right;
+        }
     }
 
     & .options {
@@ -33,35 +45,96 @@
             width: 15px;
             height: 15px;
         }
-    }
 
+        & .habits-list-button {
+            background-image: url("../../../assets/images/subtask_next.png");
+            background-size: cover;
+            margin-left: 5px;
+            width: 15px;
+            height: 15px;
+
+            &.hide-habits {
+                transform: rotate(-180deg);
+            }
+        }
+    }
     & .description {
-        font-family: RobotoRegular;
+        font-family: $helvetica-arial-font;
         margin: 10px 0;
-        font-size: 0.9375rem;
-        opacity: 0.5;
+        font-size: 0.875rem;
+        opacity: 0.7;
     }
 
-    & .end-date {
+    & .info-wrapper {
         display: flex;
         flex-direction: row;
         margin: 10px 0;
-        font-size: 2rem;
-        opacity: 0.3;
-        font-family: RobotoRegular;
+        font-size: 0.75rem;
+        align-items: center;
+        font-family: $roboto-arial-font;
 
-        & span {
-            font-size: 0.75rem;
-            vertical-align: middle;
+        & .end-date, .priority{
+            display: flex;
+            align-items: center;
         }
-
-        & .logged-hours {
+        & .priority {
             margin-left: auto;
+            font-family: RobotoRegular;
+            vertical-align: text-bottom;
+            text-transform: uppercase;
+            box-sizing: border-box;
+            color: $primary-color3;
+            &::before {
+                content: '';
+                width: 15px;
+                height: 15px;
+                display: inline-block;
+                margin-right: 5px;
+                border-radius: 50%;
+            }
+            &.p1{
+                color: #d63947;
+                &::before {
+                    box-shadow: 0px 0px 2px 0px rgba(214, 57, 71,0.9);
+                    background-color: #d63947;
+                }
+            }
+            &.p2 {
+                color: rgb(246, 145, 0);
+                &::before {
+                    box-shadow: 0px 0px 2px 0px rgba(246, 145, 0,0.9);
+                    background-color: rgb(246, 145, 0);
+                }
+            }
+            &.p3 {
+                color: #005bf3;
+                &::before {
+                    box-shadow: 0px 0px 2px 0px rgba(0, 91, 243,0.9);
+                    background-color: #005bf3;
+                }
+            }
+            &.p4 {
+                color: #01B64F;
+                &::before {
+                    box-shadow: 0px 0px 2px 0px rgba(1, 182, 79,0.9);
+                    background-color: #01B64F;
+                }
+            }
+        }
+        & .end-date {
+            opacity: 0.7;
+            &::before {
+                content: '';
+                background-image: url('../../../assets/images/calendar.svg');
+                background-size: contain;
+                width: 25px;
+                height: 25px;;
+            }
         }
     }
 
     & .progress-bar {
-        height: 5px;
+        height: 2px;
         width: 100%;
         position: relative;
         animation: widthSlide 1.0s ease-in-out;
@@ -71,7 +144,7 @@
             width: 100%;
             border-radius: 50px;
             height: 100%;
-            background-color: transparent;
+            background-color: gray;
             opacity: 0.1;
         }
 
@@ -80,30 +153,53 @@
             width: 0;
             transition-delay: 5s;
             height: 100%;
-            background-color: #202020;
+            background-color: $secondary-color2;
         }
     }
 
-    .sub-tasks {
-        margin-top: 10px;
+    .habit-list {
+        max-height: 140px;
 
-        & .subtask-list {
-            padding-left: 30px;
-            font-family: RobotoLight;
-            margin: 5px 0;
-            &::before {
-                content: '';
-                position: absolute;
-                display: block;
-                width: 15px;
-                left: 20px;
-                height: 15px;
-                border: 2px solid $primary-color1;
-            }
-            &.selected::before {
-                background-color: $primary-color1;
-                outline: 2px solid $primary-color2;
-                outline-offset: -4px;
+        & .habit-title {
+            margin-top: 0;
+            font-weight: 400;
+            font-size: 18px;
+            text-transform: capitalize;
+            font-family: $helvetica-arial-font;
+        }
+
+        & .habit-list-container {
+            border-top: 1px solid rgba(91, 69, 109,0.1);
+            & .habit-list {
+                padding: 10px 0 10px 30px;
+                font-family: $roboto-arial-font;
+                color: $primary-color4;
+                font-size: 0.875rem;
+                cursor: pointer;
+                &.selected {
+                    opacity: 0.5;
+                    cursor: default;
+                }
+                &::before {
+                    content: '';
+                    position: absolute;
+                    display: block;
+                    width: 15px;
+                    left: 20px;
+                    height: 15px;
+                    border-radius: 50%;
+                    border: 2px solid rgba(91, 69, 109,0.5);
+                }
+
+                &.selected::before {
+                    content: '✓';
+                    color: $primary-color3;
+                    text-align: center;
+                    font-size: 0.8125rem;
+                    font-family: Devanagari MT;
+                    background-color: $secondary-color2;
+                    border: 2px solid $secondary-color2;
+                }
             }
         }
     }
@@ -136,5 +232,21 @@
         to {
             width: 100%;
         }
+    }
+}
+
+@media only screen and (min-width: 600px) {
+    :host {
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 15px;
+        padding: 20px;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    :host {
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: 15px;
+        padding: 20px;
     }
 }

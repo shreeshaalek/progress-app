@@ -11,7 +11,9 @@ export class HeaderComponent implements OnInit {
   private slideNav:String = '';
   private screenSize:Number=767;
 
-  constructor() { }
+  constructor() { 
+    console.log('enter');
+  }
 
   ngOnInit() {
     this.desktopScreen = document.documentElement.offsetWidth;

@@ -13,6 +13,7 @@ export class AddGoalsComponent implements OnInit {
   private priorityVal;
   private title:String='';
   private endDate:string;
+  private priorityArr = ['critical','high','medium','low']
   private description:string; 
   private habitList:Array<Object>=[];
   private habitArr=[];
@@ -48,6 +49,9 @@ export class AddGoalsComponent implements OnInit {
     let timestamp = moment().format('YYMMDDHHmmss');
     return 'GOAL-'+timestamp;
   }
+  getPriority(priority) {
+    return this.priorityArr[parseInt(priority)-1];
+  }
   onToggleNav() {
     this.disableSubmit = false;
     if(this.navVal === 'Next') {
@@ -61,8 +65,10 @@ export class AddGoalsComponent implements OnInit {
   }
   onSubmit(){
     let goalId = this.generateId();
-
-    this.firebaseUtils.setUserData('goals/habitGoals/'+goalId,{id:goalId},{endDate:moment(new Date(this.endDate)).format('MM-DD-YYYY')}, {title:this.title}, {user:'103150873432940546560'},{description:this.description},{priority: this.priorityVal},{habitsList: this.habitArr});
+    let checkFlag = !!this.priorityVal && !!this.title && !!this.description && !!this.endDate && !!this.habitList;
+    if(checkFlag){
+      this.firebaseUtils.setUserData('goals/habitGoals/'+goalId,{id:goalId},{endDate:moment(new Date(this.endDate)).format('MM-DD-YYYY')}, {title:this.title}, {user:'103150873432940546560'},{description:this.description},{priority: this.priorityVal},{habitsList: this.habitArr});
+    }
   }
 
 }

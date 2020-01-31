@@ -11,10 +11,11 @@
     // background-image: url('../../../assets/images/background-image.jpg');
     background-image: url('../../../assets/images/add-goals.jpg');
     background-size: cover;
-    .dashboard-content {
+    & .dashboard-content {
         max-width: 72rem;
         margin: 0 auto;
     }
+
 }
 .modal {
     position: fixed;
@@ -46,8 +47,10 @@
 }
 .nav-bar-container {
     float: left;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
 }
-
 // .dashboard-content::before{
 //     content: '';
 //     background-color: $primary-color1;
